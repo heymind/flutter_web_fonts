@@ -135,8 +135,8 @@ Future<ByteData?> _loadFontByteData(WebFontsDescriptor descriptor) async {
     final byteData = await file_io.loadFontFromDeviceFileSystem(
         familyWithVariantString,
         ext: descriptor.file.ext);
-
-    return byteData;
+      
+    if(byteData != null) return byteData;
   } catch (e) {
     print(
         'Error: unable to load font $familyWithVariantString from local storage because the '
